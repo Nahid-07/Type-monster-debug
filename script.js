@@ -7,6 +7,7 @@ const modalBackground = document.getElementById("modal-background");
 // variables
 let userText = "";
 let errorCount = 0;
+let typeSpeed = 0;
 let startTime;
 let questionText = "";
 // Load and display question
@@ -19,6 +20,9 @@ fetch("./texts.json")
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
+  if(newLetter === e.key){
+    typeSpeed++
+  }
   // Handle backspace press
   if (newLetter == "Backspace") {
     userText = userText.slice(0, userText.length - 1);
@@ -71,6 +75,7 @@ const gameOver = () => {
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${parseInt(timeTaken)}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>Your type speed <span>${typeSpeed}</span> letter per minute</p>
     <button onclick="closeModal()">Close</button>
   `;
   addHistory(questionText, timeTaken, errorCount);

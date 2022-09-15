@@ -31,6 +31,7 @@ body {
   );
   backdrop-filter: blur(5px);
   margin-bottom: 30px;
+  padding: 10px;
 }
 
 #display {
@@ -142,7 +143,7 @@ button {
 
 #histories {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 10px;
 }
 
